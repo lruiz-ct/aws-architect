@@ -1,0 +1,42 @@
+Session 1 - AWS Certified Solutions Architect Associate  
+
+https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
+
+
+Domain 1: Design Resilient Architectures
+Domain 2: Design High-Performing Architectures
+Domain 3: Design Secure Applications and Architectures
+Domain 4: Design Cost-Optimized Architectures
+
+********************
+
+Data Center
+	A data center is a building filled with computers
+
+Availability Zone
+	An availability zone may be several data centers, but because they are close togheter, they are counted as 1 availability zone
+
+Region
+	A Region is a geographical area. Each region consist of 2 (or more) Availability zones
+
+Edge Location
+	Edge locations are endpoints for AWS  that are used for caching content. Typically used on AWS Cloud Front (CDN)
+
+https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+
+
+********************
+
+Shared Responsability Model
+	
+	Customer is responsible for Security IN the Cloud
+	Amazon is responsible for security OF the Cloud
+
+
+********************
+
+
+5 pillars of well architected framework
+	
+	Operational Excellence: Focuses on running and monitoring systems to deliver business value, and continually improving
+	
