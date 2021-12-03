@@ -11,7 +11,7 @@ Domain 4: Design Cost-Optimized Architectures
 ********************
 
 Data Center
-	A data center is a building filled with computers
+	A data center is a building filled with computers1
 
 Availability Zone
 	An availability zone may be several data centers, but because they are close togheter, they are counted as 1 availability zone
