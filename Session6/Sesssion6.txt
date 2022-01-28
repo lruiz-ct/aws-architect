@@ -1,0 +1,30 @@
+RDS (Relational Database Service)
+    AWS Managed Service to create PostgreSQL, MySQL, MariaDB, Oracle, Microsoft SQL Server, and Amazon Aurora in the cloud
+    Scalability: Upto 5 Read replicas, replication is asynchronous so reads are eventually consistent.
+    Availability use Multi-AZ Deployment, synchronous replication
+    You can create a read replica in a different region of your running RDS instance. You pay for replication cross Region, but not for cross AZ.
+    Automatic failover by switching the CNAME from primary to standby database
+    Enable Password and IAM Database Authentication to authenticate using database password and user credentials through IAM users and roles, works with MySQL and PostgreSQL
+    Enable Enhanced Monitoring to see percentage of CPU bandwidth and total memory consumed by each database process (OS process thread) in DB instance
+    Enable Automated Backup for daily storage volume snapshot of your DB instance with retention-period from 1 day (default from CLI, SDK) to 7 days (default from console) to 35 days (max). Use AWS Backup service for retention-period of 90 days.
+    To encrypt an unencrypted RDS DB instance, take a snapshot, copy snapshot and encrypt new snapshot with AWS KMS. Restore the DB instance with the new encrypted snapshot.
+
+Amazon Aurora
+    Amazon fully managed relational database compatible with MySQL and PostgreSQL
+    Provide 5x throughput of MySQL and 3x throughput of PostgreSQL
+    Aurora Global Database is single database span across multiple AWS regions, enable low-latency global reads and disaster recovery from region-wide outage. Use global database for disaster recovery having RPO of 1 second and RTO of 1 minute.
+    Aurora Serverless capacity type is used for on-demand auto scaling for intermittent, unpredictable, and sporadic workloads.
+    Typically operates as a DB cluster consist of one or more DB instances and a cluster volume that manages cluster data with each AZ having a copy of volume.
+    Primary DB instance - Only one primary instance, supports both read and write operation
+    Aurora Replica - Upto 15 replicas spread across different AZ, supports only read operation, automatic failover if primary DB instance fails, high availability
+    
+DynamoDB
+    AWS proprietary, Serverless, managed NoSQL database
+    Use to store JSON documents, or session data
+    Use as distributed serverless cache with single-digit millisecond performance
+    Planned Capacity provision WCU & RCU, can enable auto-scaling, good for predictable workloads
+    On-demand Capacity unlimited WCU & RCU, more expensive, good for unpredictable workloads where read & write are less (low throughput)
+    Add DAX (DynamoDB Accelerator) cluster in front of DynamoDB to cache frequently read values and offload the heavy read on hot keys of DynamoDB, prevent ProvisionedThroughputExceededException
+    Enable DynamoDB Streams to trigger events on database and integrate with lambda function for e.g. send welcome email to user added into the table.
+    Use DynamoDB Global Table to serve the data globally. You must enable DynamoDB Streams first to create global table.
+    You can use Amazon DMS (Data Migration Service) to migrate from Mongo, Oracle, MySQL, S3, etc. to DynamoDB
